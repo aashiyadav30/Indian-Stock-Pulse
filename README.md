@@ -9,6 +9,17 @@ A production-ready, SEO-optimized stock market website built with Next.js 14, fe
 
 ---
 
+## 🌐 Live Demo
+
+**🔗 Production Site**: [https://indianstockpulse.vercel.app/](https://indianstockpulse.vercel.app/)
+
+**Try These Pages:**
+- 🏠 [Homepage](https://indianstockpulse.vercel.app/) - Market overview
+- 📊 [Reliance Stock](https://indianstockpulse.vercel.app/stocks/reliance) - Stock detail with chart
+- 💻 [IT Sector](https://indianstockpulse.vercel.app/sectors/it-stocks) - Sector stocks
+- 🏦 [Banking Sector](https://indianstockpulse.vercel.app/sectors/banking-stocks) - Banking stocks
+
+---
 ## ✨ Features
 
 ### 🎯 **Core Functionality**
@@ -633,14 +644,6 @@ See [LICENSE](./LICENSE) file for full details.
 
 ---
 
-## 🌟 Star History
-
-If you find this project useful, please consider giving it a ⭐ on GitHub!
-
-[![Star History Chart](https://api.star-history.com/svg?repos=your-username/indian-stock-pulse&type=Date)](https://star-history.com/#your-username/indian-stock-pulse&Date)
-
----
-
 ## 📝 Changelog
 
 ### **v1.0.0** (February 2026)
@@ -657,9 +660,9 @@ If you find this project useful, please consider giving it a ⭐ on GitHub!
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [your-profile](https://linkedin.com/in/your-profile)
-- Email: your.email@example.com
+- GitHub: [@aashiyadav30](https://github.com/aashiyadav30)
+- LinkedIn: [Aashi-Yadav]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/aashi-yadav-398abb289/))
+- Email: aashiyadav1330@gmail.com
 
 ---
 
