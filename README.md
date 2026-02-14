@@ -9,14 +9,6 @@ A production-ready, SEO-optimized stock market website built with Next.js 14, fe
 
 ---
 
-## 📸 Preview
-
-**Live Demo**: [Your Deployed URL Here]
-
-![Homepage Preview](https://via.placeholder.com/800x400/1a1d29/10b981?text=Indian+Stock+Pulse+Dashboard)
-
----
-
 ## ✨ Features
 
 ### 🎯 **Core Functionality**
