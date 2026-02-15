@@ -12,13 +12,14 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
 
-  const filtered = query.length > 0
-    ? stocks.filter(
-        (s) =>
-          s.name.toLowerCase().includes(query.toLowerCase()) ||
-          s.symbol.toLowerCase().includes(query.toLowerCase())
-      )
-    : [];
+  const filtered =
+    query.length > 0
+      ? stocks.filter(
+          (s) =>
+            s.name.toLowerCase().includes(query.toLowerCase()) ||
+            s.symbol.toLowerCase().includes(query.toLowerCase())
+        )
+      : [];
 
   const handleStockClick = (slug: string) => {
     router.push(`/stocks/${slug}`);
@@ -34,9 +35,18 @@ const Navbar = () => {
           {[...marketIndices, ...marketIndices].map((idx, i) => (
             <span key={i} className="flex items-center gap-2 text-xs">
               <span className="font-semibold text-foreground">{idx.name}</span>
-              <span className="font-mono text-foreground">{idx.value.toLocaleString('en-IN')}</span>
-              <span className={`font-mono ${idx.change >= 0 ? "text-gain" : "text-loss"}`}>
-                {idx.change >= 0 ? "+" : ""}{idx.change.toFixed(2)} ({idx.changePercent >= 0 ? "+" : ""}{idx.changePercent.toFixed(2)}%)
+              <span className="font-mono text-foreground">
+                {idx.value.toLocaleString("en-IN")}
+              </span>
+              <span
+                className={`font-mono ${
+                  idx.change >= 0 ? "text-gain" : "text-loss"
+                }`}
+              >
+                {idx.change >= 0 ? "+" : ""}
+                {idx.change.toFixed(2)} (
+                {idx.changePercent >= 0 ? "+" : ""}
+                {idx.changePercent.toFixed(2)}%)
               </span>
             </span>
           ))}
@@ -56,10 +66,30 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</Link>
-            <Link href="/sectors/it-stocks" className="text-sm text-muted-foreground hover:text-foreground transition-colors">IT Stocks</Link>
-            <Link href="/sectors/banking-stocks" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Banking</Link>
-            <Link href="/sectors/auto-stocks" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Auto</Link>
+            <Link
+              href="/"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Home
+            </Link>
+            <Link
+              href="/sectors/it-stocks"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              IT Stocks
+            </Link>
+            <Link
+              href="/sectors/banking-stocks"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Banking
+            </Link>
+            <Link
+              href="/sectors/auto-stocks"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Auto
+            </Link>
           </div>
 
           <div className="flex items-center gap-3">
@@ -73,8 +103,13 @@ const Navbar = () => {
               className="p-2 rounded-lg hover:bg-accent transition-colors text-muted-foreground hover:text-foreground"
               aria-label="Toggle search"
             >
-              {searchOpen ? <X className="w-5 h-5" /> : <Search className="w-5 h-5" />}
+              {searchOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Search className="w-5 h-5" />
+              )}
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg hover:bg-accent transition-colors text-muted-foreground md:hidden"
@@ -97,6 +132,7 @@ const Navbar = () => {
                 autoFocus
                 className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
+
               {filtered.length > 0 && (
                 <div className="mt-2 glass-card divide-y divide-border/50 max-h-64 overflow-y-auto">
                   {filtered.map((s) => (
@@ -106,22 +142,36 @@ const Navbar = () => {
                       className="w-full flex items-center justify-between px-4 py-3 hover:bg-accent/50 transition-colors text-left"
                     >
                       <div>
-                        <p className="text-sm font-medium text-foreground">{s.name}</p>
-                        <p className="text-xs text-muted-foreground font-mono">{s.symbol}</p>
+                        <p className="text-sm font-medium text-foreground">
+                          {s.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground font-mono">
+                          {s.symbol}
+                        </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-mono text-foreground">₹{s.price.toLocaleString('en-IN')}</p>
-                        <p className={`text-xs font-mono ${s.change >= 0 ? 'text-gain' : 'text-loss'}`}>
-                          {s.change >= 0 ? '+' : ''}{s.changePercent.toFixed(2)}%
+                        <p className="text-sm font-mono text-foreground">
+                          ₹{s.price.toLocaleString("en-IN")}
+                        </p>
+                        <p
+                          className={`text-xs font-mono ${
+                            s.change >= 0 ? "text-gain" : "text-loss"
+                          }`}
+                        >
+                          {s.change >= 0 ? "+" : ""}
+                          {s.changePercent.toFixed(2)}%
                         </p>
                       </div>
                     </button>
                   ))}
                 </div>
               )}
+
               {query.length > 0 && filtered.length === 0 && (
                 <div className="mt-2 glass-card px-4 py-8 text-center">
-                  <p className="text-sm text-muted-foreground">No stocks found matching "{query}"</p>
+                  <p className="text-sm text-muted-foreground">
+                    No stocks found matching &quot;{query}&quot;
+                  </p>
                 </div>
               )}
             </div>
@@ -132,30 +182,30 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="border-t border-border/50 md:hidden bg-background">
             <div className="px-4 py-3 flex flex-col gap-2">
-              <Link 
-                href="/" 
-                onClick={() => setMobileMenuOpen(false)} 
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
                 className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Home
               </Link>
-              <Link 
-                href="/sectors/it-stocks" 
-                onClick={() => setMobileMenuOpen(false)} 
+              <Link
+                href="/sectors/it-stocks"
+                onClick={() => setMobileMenuOpen(false)}
                 className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 IT Stocks
               </Link>
-              <Link 
-                href="/sectors/banking-stocks" 
-                onClick={() => setMobileMenuOpen(false)} 
+              <Link
+                href="/sectors/banking-stocks"
+                onClick={() => setMobileMenuOpen(false)}
                 className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Banking
               </Link>
-              <Link 
-                href="/sectors/auto-stocks" 
-                onClick={() => setMobileMenuOpen(false)} 
+              <Link
+                href="/sectors/auto-stocks"
+                onClick={() => setMobileMenuOpen(false)}
                 className="py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Auto
