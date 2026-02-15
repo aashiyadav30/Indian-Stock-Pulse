@@ -103,7 +103,7 @@ export default function HomePage() {
             >
               <Link href={`/sectors/${sector.slug}`}>
                 <div className="glass-card-hover p-4 text-center">
-                  <span className="text-2xl mb-2 block">{sector.icon}</span>
+                  {/* <span className="text-2xl mb-2 block">{sector.icon}</span> */}
                   <p className="text-sm font-medium text-foreground">{sector.name}</p>
                   <p className="text-xs text-muted-foreground mt-1">{sector.count} stocks</p>
                 </div>
