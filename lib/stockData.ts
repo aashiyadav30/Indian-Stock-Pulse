@@ -133,12 +133,12 @@ export const stocks: Stock[] = [
 ];
 
 export const sectors = [
-  { name: "Information Technology", slug: "it-stocks", icon: "💻", count: 3 },
-  { name: "Banking", slug: "banking-stocks", icon: "🏦", count: 3 },
-  { name: "Energy", slug: "energy", icon: "⚡", count: 1 },
-  { name: "FMCG", slug: "fmcg-stocks", icon: "🛒", count: 2 },
-  { name: "Telecom", slug: "telecom-stocks", icon: "📡", count: 1 },
-  { name: "Automobile", slug: "auto-stocks", icon: "🚗", count: 2 },
+  { name: "Information Technology", slug: "it-stocks", count: 3 },
+  { name: "Banking", slug: "banking-stocks",  count: 3 },
+  { name: "Energy", slug: "energy", count: 1 },
+  { name: "FMCG", slug: "fmcg-stocks",  count: 2 },
+  { name: "Telecom", slug: "telecom-stocks", count: 1 },
+  { name: "Automobile", slug: "auto-stocks", count: 2 },
 ];
 
 export const getStockBySlug = (slug: string): Stock | undefined =>

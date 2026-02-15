@@ -16,12 +16,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
         <div className="container mx-auto px-4 pt-16 pb-12 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
+          <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-6">
               <Zap className="w-3 h-3" />
               Live Market Data
@@ -34,15 +29,10 @@ export default function HomePage() {
               Real-time NSE & BSE market data, stock analysis, and investment insights.
               Track top Indian stocks, sectors, and market trends.
             </p>
-          </motion.div>
+          </div>
 
           {/* Quick Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-10"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-10">
             {[
               { label: "Stocks Tracked", value: `${stocks.length}+`, icon: BarChart3 },
               { label: "Sectors", value: `${sectors.length}`, icon: TrendingUp },
@@ -55,7 +45,7 @@ export default function HomePage() {
                 <p className="text-xs text-muted-foreground mt-0.5">{stat.label}</p>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -94,22 +84,17 @@ export default function HomePage() {
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-xl font-bold text-foreground mb-6">Explore by Sector</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          {sectors.map((sector, i) => (
-            <motion.div
-              key={sector.slug}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-            >
-              <Link href={`/sectors/${sector.slug}`}>
-                <div className="glass-card-hover p-4 text-center">
-                  {/* <span className="text-2xl mb-2 block">{sector.icon}</span> */}
-                  <p className="text-sm font-medium text-foreground">{sector.name}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{sector.count} stocks</p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+         {sectors.map((sector, i) => (
+  <div key={sector.slug}>
+    <Link href={`/sectors/${sector.slug}`}>
+      <div className="glass-card-hover p-4 text-center">
+        {/* <span className="text-2xl mb-2 block">{sector.icon}</span> */}
+        <p className="text-sm font-medium text-foreground">{sector.name}</p>
+        <p className="text-xs text-muted-foreground mt-1">{sector.count} stocks</p>
+      </div>
+    </Link>
+  </div>
+))}
         </div>
       </section>
 

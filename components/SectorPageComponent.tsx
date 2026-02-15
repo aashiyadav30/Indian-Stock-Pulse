@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import StockCard from "@/components/StockCard";
 import { Stock } from "@/lib/stockData";
@@ -19,19 +18,12 @@ export default function SectorPageComponent({ sector, stocks }: SectorPageProps)
         Back to Markets
       </Link>
 
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
-      >
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-4xl">{sector.icon}</span>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">{sector.name}</h1>
-        </div>
+      <div className="mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">{sector.name}</h1>
         <p className="text-muted-foreground">
           Tracking {stocks.length} {sector.name.toLowerCase()} companies
         </p>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {stocks.map((stock, i) => (

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import type { Stock } from "@/lib/stockData";
 import PriceChangeBadge from "./PriceChangeBadge";
 import { TrendingUp, TrendingDown } from "lucide-react";
@@ -15,11 +14,7 @@ const StockCard = ({ stock, index = 0 }: StockCardProps) => {
   const isPositive = stock.change >= 0;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-    >
+    <div>
       <Link href={`/stocks/${stock.slug}`} className="block">
         <div className="glass-card-hover p-5 group">
           <div className="flex items-start justify-between mb-3">
@@ -55,7 +50,7 @@ const StockCard = ({ stock, index = 0 }: StockCardProps) => {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 };
 

@@ -20,11 +20,8 @@ export default function StockDetailPage({ stock }: { stock: Stock }) {
       </Link>
 
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
-      >
+      <div className="mb-8">
+
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
             <p className="text-sm text-muted-foreground font-mono mb-1">{stock.symbol}</p>
@@ -40,26 +37,16 @@ export default function StockDetailPage({ stock }: { stock: Stock }) {
             <PriceChangeBadge change={stock.change} changePercent={stock.changePercent} size="md" />
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Chart */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="glass-card p-5 mb-8"
-      >
+      <div className="glass-card p-5 mb-8">
         <h2 className="text-sm font-medium text-muted-foreground mb-4">Intraday Price Chart</h2>
         <StockChart data={stock.chartData} isPositive={isPositive} />
-      </motion.div>
+      </div>
 
       {/* Metrics Grid */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8"
-      >
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         {[
           { label: "Market Cap", value: stock.marketCap, icon: Building2 },
           { label: "P/E Ratio", value: stock.peRatio.toFixed(1), icon: BarChart3 },
@@ -72,15 +59,10 @@ export default function StockDetailPage({ stock }: { stock: Stock }) {
             <p className="text-lg font-bold font-mono text-foreground mt-1">{m.value}</p>
           </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* 52-Week Range */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="glass-card p-5 mb-8"
-      >
+     <div className="glass-card p-5 mb-8">
         <h2 className="text-sm font-medium text-muted-foreground mb-4">52-Week Range</h2>
         <div className="flex items-center justify-between text-xs text-muted-foreground font-mono mb-2">
           <span>₹{stock.weekLow52.toLocaleString('en-IN')}</span>
@@ -99,18 +81,13 @@ export default function StockDetailPage({ stock }: { stock: Stock }) {
         <p className="text-center text-xs text-muted-foreground mt-2 font-mono">
           Current: ₹{stock.price.toLocaleString('en-IN')}
         </p>
-      </motion.div>
+      </div>
 
       {/* Overview */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-        className="glass-card p-5"
-      >
+      <div className="glass-card p-5">
         <h2 className="text-sm font-medium text-muted-foreground mb-3">Company Overview</h2>
         <p className="text-foreground leading-relaxed">{stock.overview}</p>
-      </motion.div>
+      </div>
     </main>
   );
 }
